@@ -77,6 +77,9 @@ body
   width: 18rem 
   margin: 20px
 
+  @media (max-width: 768px)
+    flex: 0 35%
+
 .card_product-description
   position: absolute
   bottom: 8px
@@ -87,3 +90,65 @@ body
 
 .card_product-price 
   font-size: 16px
+
+
+.new-arrivals-section-container
+  display: flex 
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+.new-arrivals-title
+  width: 100%
+  margin: 50px
+  font-size: 20px
+  text-align: center
+
+.new-arrivals-products-container
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-wrap: wrap
+
+.cart-container 
+  display: flex 
+  align-items: center 
+  justify-content: space-between
+
+  img 
+    width: 20px
+    height: 20px
+    
+    @media (max-width: 768px)
+      width: 15px 
+      height: 15px
+  
+  .add-to-cart
+    text-transform: uppercase
+    font-size: 12px
+
+    @media (max-width: 768px)
+      font-size: 8px
+
+.card-body
+  padding: 10px 
+
+.card-product-name 
+  font-size: 14px 
+  
+  @media (max-width: 768px)
+    font-size: 10px
+
+.card-product-price
+  font-size: 13px
+  margin: 10px 0 15px 0
+
+  @media (max-width: 768px)
+    font-size: 9px
+    margin: 0
+
+.all-products-button
+  background-color: white
+  border: 3px solid
+  font-size: 10px
+  margin: 10px
