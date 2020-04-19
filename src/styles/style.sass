@@ -1,15 +1,53 @@
 @font-face
-  font-family: "Red Hat Display"
-  src: url('../assets/fonts/RedHatDisplay-Regular.ttf')
+  font-family: "Jost"
+  src: url('../assets/fonts/Jost-500-Medium.ttf')
 
 body
-  padding: 100px 0
-  background: #303030
-  font-family: "Red Hat Display", Arial
+  padding: 0
+  background: white
+  font-family: "Jost", Arial
 
-section
-  padding: 20px
-  background: #0ad560
-  color: #f2f2f2
-  text-align: center
-  margin-bottom: 20px
+.navigation-container
+  width: 100%
+  display: flex
+  align-items: center 
+  justify-content: space-around
+  padding: 0 80px
+
+  @media (max-width: 768px)
+    padding: 0 
+
+.navbar 
+  flex: 1 1 0px
+
+.navigation-container_logo
+  display: flex
+  align-items: center
+  justify-content: center
+  flex: 1 1 0px
+
+  img 
+    width: 100px
+    height: 20px
+
+.navigation-container_user-menu
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  margin: 0 20px
+  flex: 1 1 0px
+
+  img 
+    width: 20px
+    height: 20px 
+    margin: 0 5px
+
+
+.navbar-light .navbar-nav .nav-link 
+    color: black
+    &:hover
+      color: black
+      text-decoration: underline
+
+    &:visited
+      text-decoration: underline
