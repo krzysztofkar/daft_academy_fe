@@ -215,3 +215,63 @@ body
 
 .form-control 
   width: 80%
+
+.upper-footer
+  width: 100%
+  display: flex
+  justify-content: space-around
+  align-items: center
+ 
+  @media (max-width: 768px)
+    flex-direction: column
+
+.fa 
+  width: 40px 
+  background: white
+  color: black 
+  border-radius: 10px
+
+.social-icons-container
+  display: flex 
+  justify-content: center
+  flex: 0 30%
+
+.footer-links-container
+  display: flex 
+  justify-content: space-around
+  flex: 0 30%
+
+  @media (max-width: 768px)
+    margin: 20px
+
+  > a 
+    margin: 0 10px
+    font-size: 12px
+
+.selects-container 
+  display: flex
+  justify-content: center
+  align-items: center
+  flex: 0 30%
+
+label
+  opacity: 0.5
+  margin: 0 5px
+  font-size: 12px
+
+select
+  border: 1px solid
+  font-size: 12px
+
+.bottom-footer
+  display: flex
+  width: 100%
+  justify-content: space-around
+  margin: 10px
+  
+  > div
+    font-size: 12px
+
+  > img 
+    height: 20px
+    width: 100px
