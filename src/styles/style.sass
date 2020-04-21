@@ -2,10 +2,14 @@
   font-family: "Jost"
   src: url('../assets/fonts/Jost-500-Medium.ttf')
 
+html
+  padding: 0
 body
   padding: 0
   background: white
   font-family: "Jost", Arial
+
+// Navbar 
 
 .navigation-container
   width: 100%
@@ -17,41 +21,44 @@ body
 
   @media (max-width: 768px)
     padding: 0 
+  
+  &__logo
+    display: flex
+    align-items: center
+    justify-content: center
+    flex: 1 1 0px
+
+    img
+      width: 100px
+      height: 20px
+    
+  &__user-menu
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    margin: 0 20px
+    flex: 1 1 0px
+
+    &__icon
+      width: 20px
+      height: 20px
+      margin: 0 5px
+
 
 .navbar 
   flex: 1 1 0px
 
-.navigation-container_logo
-  display: flex
-  align-items: center
-  justify-content: center
-  flex: 1 1 0px
-
-  img 
-    width: 100px
-    height: 20px
-
-.navigation-container_user-menu
-  display: flex
-  align-items: center
-  justify-content: flex-end
-  margin: 0 20px
-  flex: 1 1 0px
-
-  img 
-    width: 20px
-    height: 20px 
-    margin: 0 5px
-
-
 .navbar-light .navbar-nav .nav-link 
     color: black
+
     &:hover
       color: black
       text-decoration: underline
 
     &:visited
       text-decoration: underline
+
+// Background Image 
 
 .background-img 
   position: relative
@@ -63,6 +70,8 @@ body
 
   @media (max-width: 768px)
     height: 400px
+
+// Carousel 
 
 .carousel-container 
   background-color: #263a49
@@ -80,85 +89,88 @@ body
   @media (max-width: 768px)
     flex: 0 35%
 
-.card_product-description
+.product-description
   position: absolute
   bottom: 8px
   left: 16px
 
-.card_product-name 
-  font-size: 20px
+  &__name
+    font-size: 20px
+  
+  &__price
+    font-size: 16px
 
-.card_product-price 
-  font-size: 16px
+// New Arrivals 
 
-
-.new-arrivals-section-container
+.new-arrivals-container
   display: flex 
   align-items: center
   justify-content: center
   flex-direction: column
 
-.new-arrivals-title
-  width: 100%
-  margin: 50px
-  font-size: 20px
-  text-align: center
-
-.new-arrivals-products-container
-  display: flex
-  align-items: center
-  justify-content: center
-  flex-wrap: wrap
-
-.cart-container 
-  display: flex 
-  align-items: center 
-  justify-content: space-between
-
   img 
-    width: 20px
-    height: 20px
+    @media (max-width: 768px)
+      height: 200px
+
+  &__title
+    width: 100%
+    margin: 50px
+    font-size: 20px
+    text-align: center
+
+    @media (max-width: 768px)
+      margin: 20px
+
+  &__products-container
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+  
+  &__product-name
+    font-size: 14px 
     
     @media (max-width: 768px)
-      width: 15px 
-      height: 15px
-  
-  .add-to-cart
-    text-transform: uppercase
-    font-size: 12px
+      font-size: 10px
+
+  &__product-price
+    font-size: 13px
+    margin: 10px 0 15px 0
 
     @media (max-width: 768px)
-      font-size: 8px
+      font-size: 9px
+      margin: 0
+
+  &__cart-container
+    display: flex 
+    align-items: center 
+    justify-content: space-between
+
+    img 
+      width: 20px
+      height: 20px
+    
+      @media (max-width: 768px)
+        width: 15px 
+        height: 15px
+  
+    &__add-to-cart
+      text-transform: uppercase
+      font-size: 12px
+
+      @media (max-width: 768px)
+        font-size: 8px
+
+  &__all-products-button
+    background-color: white
+    border: 3px solid
+    font-size: 10px
+    margin: 10px
 
 .card-body
   padding: 10px 
 
-.card-product-name 
-  font-size: 14px 
-  
-  @media (max-width: 768px)
-    font-size: 10px
-
-.card-product-price
-  font-size: 13px
-  margin: 10px 0 15px 0
-
-  @media (max-width: 768px)
-    font-size: 9px
-    margin: 0
-
-.all-products-button
-  background-color: white
-  border: 3px solid
-  font-size: 10px
-  margin: 10px
-
-.img
-  position: relative
-  text-align: center
-  
-  @media (max-width: 768px)
-    margin: 10px 0
+// Images grid
 
 .img-text
   position: absolute
@@ -179,25 +191,35 @@ body
   grid-template-rows: repeat(2, 325px)
   grid-column-gap: 10px
   grid-row-gap: 10px
-  
-  > .img-1 
-    grid-area: 1 / 1 / 3 / 2
-  > .img-2
-    grid-area: 1 / 2 / 2 / 3
-  > .img-3
-    grid-area: 1 / 3 / 2 / 4
-  > .img-4 
-    grid-area: 2 / 2 / 3 / 4
-  
+
   @media (max-width: 768px)
     display: flex
     flex-direction: column
+
+  &__img
+    position: relative
+    text-align: center
+
+    & > img 
+      height: 100%
+      width: 100%
+      object-fit: cover
+
+    @media (max-width: 768px)
+      margin: 10px 0
   
-  .img > img
-    height: 100%
-    width: 100%
-    object-fit: cover
+  .img-1 
+    grid-area: 1 / 1 / 3 / 2
+  .img-2
+    grid-area: 1 / 2 / 2 / 3
+  .img-3
+    grid-area: 1 / 3 / 2 / 4
+  .img-4 
+    grid-area: 2 / 2 / 3 / 4
   
+
+// Newsletter 
+
 .newsletter-container 
   display: flex
   flex-direction: column
@@ -205,16 +227,26 @@ body
   justify-content: center
   margin-bottom: 20px
 
-.newsletter-title 
-  font-size: 20px
-  margin: 30px 0
 
-.newsletter-subtitle 
-  font-size: 12px
-  margin: 20px 0
+  &__title 
+    font-size: 20px
+    margin: 30px 0
+
+    @media (max-width: 768px)
+      margin: 10px 0
+
+  &__subtitle 
+    font-size: 12px
+    margin: 20px 0
+
+    @media (max-width: 768px)
+      margin: 10px 0
 
 .form-control 
   width: 80%
+
+
+// Footers
 
 .upper-footer
   width: 100%
@@ -225,34 +257,28 @@ body
   @media (max-width: 768px)
     flex-direction: column
 
-.fa 
-  width: 40px 
-  background: white
-  color: black 
-  border-radius: 10px
+  &__social-icons-container
+    display: flex 
+    justify-content: center
+    flex: 0 30%
 
-.social-icons-container
-  display: flex 
-  justify-content: center
-  flex: 0 30%
+  &__links-container
+    display: flex 
+    justify-content: space-around
+    flex: 0 30%
 
-.footer-links-container
-  display: flex 
-  justify-content: space-around
-  flex: 0 30%
+    @media (max-width: 768px)
+      margin: 10px 0
 
-  @media (max-width: 768px)
-    margin: 20px
+    > a 
+      margin: 0 10px
+      font-size: 12px
 
-  > a 
-    margin: 0 10px
-    font-size: 12px
-
-.selects-container 
-  display: flex
-  justify-content: center
-  align-items: center
-  flex: 0 30%
+  &__selects-container 
+    display: flex
+    justify-content: center
+    align-items: center
+    flex: 0 30%
 
 label
   opacity: 0.5
@@ -263,15 +289,26 @@ select
   border: 1px solid
   font-size: 12px
 
+.fa 
+  width: 40px 
+  background: white
+  color: black 
+  border-radius: 10px
+
 .bottom-footer
   display: flex
   width: 100%
   justify-content: space-around
-  margin: 10px
+  align-items: center
+  margin-bottom: 10px
   
   > div
     font-size: 12px
 
   > img 
     height: 20px
-    width: 100px
+    width: 200px
+
+    @media (max-width: 768px)
+      height: 10px
+      width: 100px
