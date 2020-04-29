@@ -1,4 +1,4 @@
 import './src/styles/style.sass';
-import { functions } from './functions.js'
+import { onLoad } from './onLoad.js'
 
-document.addEventListener('DOMContentLoaded', functions())
+document.addEventListener('DOMContentLoaded', onLoad())
