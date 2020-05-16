@@ -64,10 +64,11 @@ export const loadSliderElements = () => {
                 carouselCards.forEach(element => {
                     element.innerHTML = `<div class="error__container">Something went wrong :( <br> Try again later</div></div>`
                 })
+            } else {
+                response.json().then(data => {
+                    fillSliderCards(carouselCards, data)
+                })
             }
-            response.json().then(data => {
-                fillSliderCards(carouselCards, data)
-            })
         })
         .catch(err => {
             carouselCards.forEach(card => {
