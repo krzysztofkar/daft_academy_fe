@@ -30,3 +30,43 @@ export const slider = () => {
 
 
 }
+
+const fillSliderCards = (cards, data) => {
+    cards.forEach((card, idx) => {
+        card.innerHTML = `
+            <img class="card-img-top" src="https://${data.products[idx].imageUrl}" alt="Card image cap">
+            <div class="product-description">
+              <div class="product-description__name">
+                ${data.products[idx].brandName}
+              </div>
+              <div class="product-description__price">
+                ${data.products[idx].price.current.text}
+              </div>
+            </div>
+            `
+    })
+}
+
+export const loadSliderElements = () => {
+    const carouselCards = document.querySelectorAll('.carousel-card .card')
+    carouselCards.forEach(card => {
+        card.innerHTML = `<div class="loader__container"><div class="loader"></div></div>`
+    })
+    fetch("https://asos2.p.rapidapi.com/products/v2/list?country=US&currency=USD&sort=freshness&lang=en-US&sizeSchema=US&offset=0&categoryId=4209&limit=5&store=US", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "asos2.p.rapidapi.com",
+            "x-rapidapi-key": "7321141052mshaeb2932e08de95ap11a85djsnc582ae8c3979"
+        }
+    })
+        .then(response => {
+            response.json().then(data => {
+                fillSliderCards(carouselCards, data)
+            })
+        })
+        .catch(err => {
+            carouselCards.forEach(card => {
+                card.innerHTML = `<div class="error__container">Something went wrong :( <br> Try again later</div></div>`
+            })
+        });
+}
