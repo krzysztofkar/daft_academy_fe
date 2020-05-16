@@ -6,7 +6,6 @@ const createProductCards = quantity => {
     while (i < quantity) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
-        console.log(card)
         cards.push(card)
         i++;
     }
