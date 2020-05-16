@@ -31,6 +31,13 @@ export const loadNewArrivalsElements = () => {
         }
     })
         .then(response => {
+            if (response.status !== 200) {
+                newArrivalsCards.forEach(card => {
+                    card.style.height = "390px"
+                    card.style.width = "309px"
+                    element.innerHTML = `<div class="error__container">Something went wrong :( <br> Try again later</div></div>`
+                })
+            }
             response.json().then(data => {
                 fillNewArrivalsCards(newArrivalsCards, data)
             })

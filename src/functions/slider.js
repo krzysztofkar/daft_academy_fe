@@ -60,6 +60,11 @@ export const loadSliderElements = () => {
         }
     })
         .then(response => {
+            if (response.status !== 200) {
+                carouselCards.forEach(element => {
+                    element.innerHTML = `<div class="error__container">Something went wrong :( <br> Try again later</div></div>`
+                })
+            }
             response.json().then(data => {
                 fillSliderCards(carouselCards, data)
             })
