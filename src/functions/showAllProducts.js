@@ -1,18 +1,10 @@
+import { fillNewArrivalsCards } from './loadNewArrivals'
 
 const createProductCards = quantity => {
     let i = 0
     const cards = []
     while (i < quantity) {
         const card = document.createElement('div');
-        card.innerHTML += `<img src="https://via.placeholder.com/309x390.png" alt="">
-        <div class="card-body" >
-            <div class="new-arrivals-container__product-name">product-name</div>
-            <div class="new-arrivals-container__product-price">product-price</div>
-            <div class="new-arrivals-container__cart-container">
-            <div class="new-arrivals-container__cart-container__add-to-cart">Add to cart</div>
-                <img src="../src/assets/heart.png" alt="">
-            </div>
-        </div>`;
         card.setAttribute('class', 'card');
         console.log(card)
         cards.push(card)
@@ -27,5 +19,31 @@ export const showAllProducts = () => {
     allProductsButton.addEventListener('click', () => {
         const cards = createProductCards(4)
         cards.map(card => productsContainer.appendChild(card))
+        cards.forEach(card => {
+            card.style.height = "390px"
+            card.style.width = "309px"
+            card.innerHTML = `<div class="loader__container"><div class="loader"></div></div>`
+        })
+        fetch("https://asos2.p.rapidapi.com/products/v2/list?country=US&currency=USD&sort=freshness&lang=en-US&sizeSchema=US&offset=0&categoryId=4208&limit=4&store=US", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "asos2.p.rapidapi.com",
+                "x-rapidapi-key": "7321141052mshaeb2932e08de95ap11a85djsnc582ae8c3979"
+            }
+        })
+            .then(response => {
+                response.json().then(data => {
+                    fillNewArrivalsCards(cards, data)
+                })
+            })
+            .catch(err => {
+                cards.forEach(card => {
+                    card.style.height = "390px"
+                    card.style.width = "309px"
+                    card.innerHTML = `<div class="error__container">Something went wrong :( <br> Try again later</div></div>`
+                })
+            });
+        allProductsButton.style.display = "none";
     })
+
 }
