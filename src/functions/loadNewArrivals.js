@@ -27,7 +27,7 @@ export const loadNewArrivalsElements = () => {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "asos2.p.rapidapi.com",
-            "x-rapidapi-key": "7321141052mshaeb2932e08de95ap11a85djsnc582ae8c3979"
+            "x-rapidapi-key": "30ef9745aamsh6b741f04efb2d6dp12d0f0jsn8babf77fe24c"
         }
     })
         .then(response => {
